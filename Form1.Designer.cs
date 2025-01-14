@@ -36,9 +36,9 @@
 			lblHello.AutoSize = true;
 			lblHello.Location = new Point(123, 67);
 			lblHello.Name = "lblHello";
-			lblHello.Size = new Size(45, 20);
+			lblHello.Size = new Size(89, 20);
 			lblHello.TabIndex = 0;
-			lblHello.Text = "Hello";
+			lblHello.Text = "Hello World";
 			// 
 			// Form1
 			// 
