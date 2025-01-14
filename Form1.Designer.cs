@@ -28,19 +28,33 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			lblHello = new Label();
 			SuspendLayout();
+			// 
+			// lblHello
+			// 
+			lblHello.AutoSize = true;
+			lblHello.Location = new Point(123, 67);
+			lblHello.Name = "lblHello";
+			lblHello.Size = new Size(45, 20);
+			lblHello.TabIndex = 0;
+			lblHello.Text = "Hello";
 			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
+			Controls.Add(lblHello);
 			Name = "Form1";
 			Text = "Arpan Pokharel";
 			Load += Form1_Load;
 			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
+
+		private Label lblHello;
 	}
 }
