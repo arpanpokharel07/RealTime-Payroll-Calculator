@@ -1,0 +1,16 @@
+D:\Codes\Github\RealTIme Payroll Calculator\bin\Debug\net8.0-windows\RealTIme Payroll Calculator.exe
+D:\Codes\Github\RealTIme Payroll Calculator\bin\Debug\net8.0-windows\RealTIme Payroll Calculator.deps.json
+D:\Codes\Github\RealTIme Payroll Calculator\bin\Debug\net8.0-windows\RealTIme Payroll Calculator.runtimeconfig.json
+D:\Codes\Github\RealTIme Payroll Calculator\bin\Debug\net8.0-windows\RealTIme Payroll Calculator.dll
+D:\Codes\Github\RealTIme Payroll Calculator\bin\Debug\net8.0-windows\RealTIme Payroll Calculator.pdb
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme_Payroll_Calculator.Form1.resources
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.csproj.GenerateResource.cache
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.AssemblyInfoInputs.cache
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.AssemblyInfo.cs
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.csproj.CoreCompileInputs.cache
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.dll
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\refint\RealTIme Payroll Calculator.dll
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.pdb
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.genruntimeconfig.cache
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\ref\RealTIme Payroll Calculator.dll
