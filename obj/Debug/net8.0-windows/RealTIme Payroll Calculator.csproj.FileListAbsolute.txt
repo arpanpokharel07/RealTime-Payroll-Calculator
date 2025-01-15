@@ -14,3 +14,5 @@ D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\refint\Real
 D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.pdb
 D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.genruntimeconfig.cache
 D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\ref\RealTIme Payroll Calculator.dll
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme Payroll Calculator.sourcelink.json
+D:\Codes\Github\RealTIme Payroll Calculator\obj\Debug\net8.0-windows\RealTIme_Payroll_Calculator.Properties.Resources.resources
