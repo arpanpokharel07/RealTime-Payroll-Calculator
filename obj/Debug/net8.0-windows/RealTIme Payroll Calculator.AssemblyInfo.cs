@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RealTIme Payroll Calculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf274307ccf4ed4bab27f663f52d8ceeb874a074")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0846761ff3a83156d0aa9c2889851fa4d9cb278")]
 [assembly: System.Reflection.AssemblyProductAttribute("RealTIme Payroll Calculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RealTIme Payroll Calculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

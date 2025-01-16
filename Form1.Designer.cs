@@ -92,11 +92,11 @@
 			// lblFrequency
 			// 
 			lblFrequency.AutoSize = true;
-			lblFrequency.Location = new Point(50, 140);
+			lblFrequency.Location = new Point(50, 141);
 			lblFrequency.Name = "lblFrequency";
-			lblFrequency.Size = new Size(127, 20);
+			lblFrequency.Size = new Size(207, 20);
 			lblFrequency.TabIndex = 4;
-			lblFrequency.Text = "Select Frequency: ";
+			lblFrequency.Text = "What would be my __ Salary?";
 			// 
 			// lblHrsPWeek
 			// 
@@ -151,7 +151,7 @@
 			// lblSalary
 			// 
 			lblSalary.AutoSize = true;
-			lblSalary.Location = new Point(533, 271);
+			lblSalary.Location = new Point(435, 206);
 			lblSalary.Name = "lblSalary";
 			lblSalary.Size = new Size(0, 20);
 			lblSalary.TabIndex = 12;

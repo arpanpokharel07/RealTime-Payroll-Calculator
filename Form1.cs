@@ -4,39 +4,112 @@ namespace RealTIme_Payroll_Calculator
 
 	public partial class Form1 : Form
 	{
-		List<TaxBracket> _federal = new List<TaxBracket>();
-		List<TaxBracket> _alberta = new List<TaxBracket>();
-		List<TaxBracket> _british_columbia = new List<TaxBracket>();
-		List<TaxBracket> ontario = new List<TaxBracket>();
-
-
-		void LoadONTax()
+		double _provinceTax = 0;
+		double _federalTax = 0;
+		double CalculateABTax(double amount)
 		{
-			ontario.Add(new TaxBracket(5.05, 0, 51446));
-			ontario.Add(new TaxBracket(9.15, 51446, 102894));
-			ontario.Add(new TaxBracket(11.16, 102894, 150000));
-			ontario.Add(new TaxBracket(12.16, 150000, 220000));
-			ontario.Add(new TaxBracket(13.16, 220000, 0));
-		}
-		void LoadABTax()
-		{
-			_alberta.Add(new TaxBracket(10, 0, 148269));
-			_alberta.Add(new TaxBracket(12, 148269, 177922));
-			_alberta.Add(new TaxBracket(13, 177922, 237230));
-			_alberta.Add(new TaxBracket(14, 237230, 355845));
-			_alberta.Add(new TaxBracket(15, 355845, 0));
-		}
-		void LoadBCTax()
-		{
-			_british_columbia.Add(new TaxBracket(5.06, 0, 47937));
-			_british_columbia.Add(new TaxBracket(7.7, 47937, 95875));
-			_british_columbia.Add(new TaxBracket(10.5, 95875, 110076));
-			_british_columbia.Add(new TaxBracket(12.29, 110076, 133664));
-			_british_columbia.Add(new TaxBracket(14.7, 133664, 181232));
-			_british_columbia.Add(new TaxBracket(16.8, 181232, 252752));
-			_british_columbia.Add(new TaxBracket(20.5, 252752, 0));
-		}
+			double _provinceTax = 0;
+			if (0 < amount && amount <= 148269)
+			{
+				_provinceTax = amount * 0.1;
+			}
+			else if (148269 < amount && amount <= 177922)
+			{
+				_provinceTax = (148269 * 0.1) + ((amount - 148269) * 0.12);
+			}
+			else if (177922< amount && amount <= 237230)
+			{
+				_provinceTax = (148269 * 0.1) + ((177922- 148269) * 0.12) + ((amount - 177922) * 0.13);
 
+			}
+			else if (237230< amount && amount <= 355845)
+			{
+				_provinceTax = (148269 * 0.1) + ((177922- 148269) * 0.12) + ((237230- 177922) * 0.13) + ((amount - 237230) * 0.14);
+
+			}
+			else if (355845< amount)
+			{
+				_provinceTax = (148269 * 0.1) + ((177922- 148269) * 0.12) + ((237230- 177922) * 0.13) + ((355845- 237230) * 0.14) + ((amount - 355845) * 0.15);
+
+			}
+			return _provinceTax;
+		}
+		double CalculateBCTax(double amount)
+		{
+			if (0 < amount && amount <= 47937)
+			{
+				_provinceTax = amount * 0.0506;
+			}
+			else if (47937 < amount && amount <= 95875)
+			{
+				_provinceTax = (47937 * 0.0506) + ((amount - 47937) * 0.077);
+			}
+			else if (95875 < amount && amount <= 110076)
+			{
+				_provinceTax = (47937 * 0.0506) + ((95875 - 47937) * 0.077) +
+						((amount - 95875) * 0.105);
+
+			}
+			else if (110076 < amount && amount <= 133664)
+			{
+				_provinceTax = (47937 * 0.0506) + ((95875 - 47937) * 0.077) + 
+					((110076 - 95875) * 0.105) + ((amount - 110076) * 0.1229);
+
+			}
+			else if (133664 < amount && amount <= 181232)
+			{
+				_provinceTax = (47937 * 0.0506) + ((95875 - 47937) * 0.077) + 
+					((110076 - 95875) * 0.105) + ((110076 - 95875) * 0.1229) + 
+					((amount - 133664) * 0.147);
+
+			}
+			else if (181232 < amount && amount <= 252752)
+			{
+				_provinceTax = (47937 * 0.0506) + ((95875 - 47937) * 0.077) + 
+					((110076 - 95875) * 0.105) + ((110076 - 95875) * 0.1229) + 
+					((133664 - 110076) * 0.147) + ((amount - 181232) * 0.168);
+
+			}
+			else if (252752 < amount)
+			{
+				_provinceTax = (47937 * 0.0506) + ((95875 - 47937) * 0.077) + 
+					((110076 - 95875) * 0.105) + ((110076 - 95875) * 0.1229) + 
+					((133664 - 110076) * 0.147) + ((181232 - 133664) * 0.168) + 
+					((amount - 252752) * 0.205);
+
+			}
+			return _provinceTax;
+		}
+		double CalculateONTax( double amount)
+		{
+			int[] threshold= { 51446, 102894, 150000, 220000};
+			double[] rate = { 5.05/100, 9.15/100, 11.16 / 100, 12.16/100, 13.16/100 };
+
+			if (0 < amount && amount <= threshold[0])
+			{
+				_provinceTax = amount * rate[0];
+			}
+			else if (threshold[0] < amount && amount <= threshold[1])
+			{
+				_provinceTax = (threshold[0] * rate[0]) + ((amount - threshold[0]) * rate[1]);
+			}
+			else if (threshold[1] < amount && amount <= threshold[2])
+			{
+				_provinceTax = (threshold[0] * rate[0]) + ((threshold[1] - threshold[0]) * rate[1]) + ((amount - threshold[1]) * rate[2]);
+
+			}
+			else if (threshold[2] < amount && amount <= threshold[3])
+			{
+				_provinceTax = (threshold[0] * rate[0]) + ((threshold[1] - threshold[0]) * rate[1]) + ((threshold[2] - threshold[1]) * rate[2]) + ((amount - threshold[2]) * rate[3]);
+
+			}
+			else if (threshold[3] < amount)
+			{
+				_provinceTax = (threshold[0] * rate[0]) + ((threshold[1] - threshold[0]) * rate[1]) + ((threshold[2] - threshold[1]) * rate[2]) + ((threshold[3] - threshold[2]) * rate[3]) + ((amount - threshold[3]) * rate[4]);
+
+			}
+			return _provinceTax;
+		}
 
 		public Form1()
 		{
@@ -45,70 +118,65 @@ namespace RealTIme_Payroll_Calculator
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			LoadFederalTax();
-			LoadONTax();
-			LoadABTax();
-			LoadBCTax();
 			cbFrequency.SelectedIndex = 0;
 			cbProvince.SelectedIndex = 0;
 		}
 
-		void LoadFederalTax()
-		{
-			_federal.Add(new TaxBracket(15, 0, 55867));
-			_federal.Add(new TaxBracket(20.5, 55867, 111733));
-			_federal.Add(new TaxBracket(26, 111733, 173205));
-			_federal.Add(new TaxBracket(29, 173205, 246752));
-			_federal.Add(new TaxBracket(33, 246752, 0));
-		}
+		
 		void CalculateFederalTax(double amount)
 		{
-			double tax = 0;
-			if (0 < amount && amount <= 50000)
+			if (0 < amount && amount <= 55867)
 			{
-				//Example: 25k
-				// 25k
-				tax = amount * 0.1;
-				lblSalary.Text = "25k";
+				_federalTax = amount * 0.15;
 			}
-			else if (50000 < amount && amount <= 110000)
+			else if (55867 < amount && amount <= 111733)
 			{
-				//Example: 60k
-				//50k 10k
-				tax = (50000 * 0.1) + ((amount - 50000) * 0.1);
-				lblSalary.Text = "60k";
+				_federalTax = (55867 * 0.15) + ((amount - 55867) * 0.205);
 			}
-			else if (11000 < amount && amount <= 150000)
+			else if (111733 < amount && amount <= 173205)
 			{
-				//Example: 140k
-				//
-				tax = (50000 * 0.1) + ((110000 - 50000) * 0.1) + ((amount - 110000) * 0.1);
-				lblSalary.Text = "140k";
+				_federalTax = (55867 * 0.15) + ((111733 - 55867) * 0.205) + ((amount - 111733) * 0.26);
+
 			}
-			else if (150000 < amount && amount <= 240000)
+			else if (173205 < amount && amount <= 246752)
 			{
-				//Example: 200k
-				tax = (50000 * 0.1) + ((110000 - 50000) * 0.1) + ((150000 - 110000) * 0.1) + ((amount - 150000) * 0.1);
-				lblSalary.Text = "200k";
+				_federalTax = (55867 * 0.15) + ((111733 - 55867) * 0.205) + ((173205 - 111733) * 0.26) + ((amount - 173205) * 0.29);
+
 			}
-			else if (240000 < amount)
+			else if (246752 < amount)
 			{
-				//Example:250k
-				tax = (50000 * 0.1) + ((110000 - 50000) * 0.1) + ((150000 - 110000) * 0.1) + ((240000 - 150000) * 0.1) + ((amount-240000)*0.1);
-				lblSalary.Text = "250k";
+				_federalTax = (55867 * 0.15) + ((111733 - 55867) * 0.205) + ((173205 - 111733) * 0.26) + ((246752 - 173205) * 0.29) + ((amount - 246752) * 0.33);
+
 			}
 
-			lblSalary.Text += "\n Amount is:" + amount + "\n Tax is: " + tax.ToString();
+			lblSalary.Text += "\n Total amount is: $" + Math.Round((amount+ 15705), 2) + "\n Federal Tax is: $" + Math.Round(_federalTax, 2).ToString();
 		}
-
 		void CalculateProvinceTax(double amount)
 		{
-
+			switch (cbProvince.Text)
+			{
+				case "Ontario":
+					{
+						lblSalary.Text += "\n ON Tax: " + Math.Round(CalculateONTax(amount), 2);
+						break;
+					}
+				case "Alberta":
+					{
+						lblSalary.Text += "\n AB Tax: " + Math.Round(CalculateABTax(amount), 2);
+						break;
+					}
+				case "British Columbia":
+					{
+						lblSalary.Text += "\n BC Tax: " + Math.Round(CalculateBCTax(amount), 2);
+						break;
+					}
+			}
 		}
-
+	
 
 		private void btnCalculate_Click(object sender, EventArgs e)
 		{
+			lblSalary.Text = "";
 			//Takes all the value from the users for calculation
 			string province = cbProvince.Text;
 			string frequency = cbFrequency.Text;
@@ -121,36 +189,37 @@ namespace RealTIme_Payroll_Calculator
 			{
 				case "Annual":
 					{
-						salary *= 1;
+						salary *= 52;
 						break;
 					}
 				case "Semi-Annual":
 					{
-						salary *= 2;
+						salary *= 26;
 						break;
 					}
 				case "Monthly":
 					{
-						salary *= 12;
+						salary *= 52/12;
 						break;
 					}
 				case "Bi-weekly":
 					{
-						salary *= 26;
+						salary *= 2;
 						break;
 					}
 				case "Weekly":
 					{
-						salary *= 52;
+						salary *= 1;
 						break;
 					}
 			}
 
-			//Calculating federal tax
-			CalculateFederalTax(salary);
-
-			//Calculating provincial tax
-			//CalculateProvinceTax(salary);
+			CalculateFederalTax((salary - 15705));
+			CalculateProvinceTax(salary);
+			//Calculating federal_provinceTax
+			double allTax = Math.Round(_federalTax + _provinceTax, 2);
+			double afterTax = Math.Round(salary - allTax, 2);
+			lblSalary.Text += "\n Total tax: " + allTax + "\n After Tax: " + afterTax;
 		}
 
 	}
